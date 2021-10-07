@@ -13,9 +13,9 @@ public class UtilisateurWriter {
     }
 
     public static void writeUtilisateur(String unNomDeFichier, ArrayList<String> desNoms, ArrayList<String> desPrenoms, int combien) throws IOException {
-        ArrayList<String> genre = new ArrayList();
-        genre.add("M");
-        genre.add("Mme");
+        ArrayList<String> genres = new ArrayList();
+        genres.add("M");
+        genres.add("Mme");
         BufferedWriter writer = null;
         Random rand = new Random();
 
@@ -23,11 +23,11 @@ public class UtilisateurWriter {
             writer = new BufferedWriter(new FileWriter(unNomDeFichier));
 
             for (int i = 0; i < combien; i++) {
-                String randomGenre = genre.get(rand.nextInt(genre.size()));
+                String randomGenre = genres.get(rand.nextInt(genres.size()));
                 writer.write(randomGenre);
                 String randomNoms = desNoms.get(rand.nextInt(desNoms.size()));
                 writer.write(randomNoms);
-                String randomPrenoms = desPrenoms.get(rand.nextInt(desNoms.size()));
+                String randomPrenoms = desPrenoms.get(rand.nextInt(desPrenoms.size()));
                 writer.write(randomPrenoms);
                 writer.newLine();
             }
